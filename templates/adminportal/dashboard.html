@@ -1,0 +1,140 @@
+{% extends 'adminportal/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'adminportal/navbar.html' %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>Dashboard</h1>
+        <ol class="breadcrumb">
+            <li><a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a></li>
+            <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+        <div class="row">
+            <!-- <div class="col-lg-3 col-xs-6">
+                <div class="media-box">
+                    <div class="media-icon pull-left"><i class="icon-bargraph"></i> </div>
+                    <div class="media-info">
+                        <h5>Total Leads</h5>
+                        <h3>1530</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="media-box bg-sea">
+                    <div class="media-icon pull-left"><i class="icon-wallet"></i> </div>
+                    <div class="media-info">
+                        <h5>Total Payment</h5>
+                        <h3>$8,530</h3>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-lg-3 col-xs-6">
+                <div class="media-box bg-blue">
+                    <div class="media-icon pull-left"><i class="icon-basket"></i> </div>
+                    <div class="media-info">
+                        <h5>Total Product</h5>
+                        <h3>{{ countprod }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <div class="media-box bg-green">
+                    <div class="media-icon pull-left"><i class="icon-layers"></i> </div>
+                    <div class="media-info">
+                        <h5>New Orders</h5>
+                        <h3>{{countreserve}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="chart-box">
+                    <h4>Recent Product</h4>
+                    <div class="table-block">
+                        <!-- <div class="info-block">
+                            <p>Total paid invoices 5340, unpaid 130. <span class="pull-right"><a
+                                        href="app/invoice.html">Invoice Summary <i
+                                            class="fa fa-long-arrow-right"></i></a></span> </p>
+                        </div> -->
+                        <div class="table-responsive">
+                            <table class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <!-- <th>SN</th> -->
+                                        <!-- <th>Invoice#</th> -->
+                                        <th>Product Name</th>
+                                        <!-- <th>Status</th> -->
+                                        <th>Charge</th>
+                                        <th>Pre Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for product in product %}
+                                    <tr>
+                                        <!-- <td class="text-truncate">{{ product.id }}</td> -->
+                                        <!-- <td class="text-truncate"><a href="#">VIO-0035421</a></td> -->
+                                        <td class="text-truncate">{{ product.prodName }}</td>
+                                        <!-- <td class="text-truncate"><span class="lable-tag tag-success">Paid</span></td> -->
+                                        <td class="text-truncate">$ {{ product.prodCharge }}</td>
+                                        <td class="text-truncate">$ {{ product.preoderAmount }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="chart-box">
+                    <h4>Recent Reserve PreOrder</h4>
+                    <div class="table-block">
+                        <!-- <div class="info-block">
+                            <p>Total paid invoices 5340, unpaid 130. <span class="pull-right"><a
+                                        href="app/invoice.html">Invoice Summary <i
+                                            class="fa fa-long-arrow-right"></i></a></span> </p>
+                        </div> -->
+                        <div class="table-responsive">
+                            <table class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <!-- <th>No</th> -->
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Status</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for reserve in reserve %}
+                                    <tr>
+                                        <!-- <td class="text-truncate">{{ reserve.id }}</td> -->
+                                        <td class="text-truncate"><a href="#">{{ reserve.preoderFName }}
+                                                {{ reserve.preoderLName }}</a></td>
+                                        <td class="text-truncate">{{ reserve.preoderEmail }}</td>
+                                        <td class="text-truncate">{{ reserve.preoderPhoneNum }}</td>
+                                        <td class="text-truncate"><span class="lable-tag tag-success">Paid</span></td>
+                                        <td class="text-truncate">$ {{ reserve.product.preoderAmount }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- content -->
+</div>
+<!-- content-wrapper -->
+{% include 'adminportal/footer.html' %}
+{% endblock %}

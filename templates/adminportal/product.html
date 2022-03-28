@@ -1,0 +1,70 @@
+{% extends 'adminportal/base.html' %}
+{% load static %}
+{% block content %}
+
+{% include 'adminportal/navbar.html' %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>Product Table</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li class="active"><i class="fa fa-envelope-o"></i> Tables</li>
+            <li class="active"><i class="fa fa-table"></i> Data Tables</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="chart-box">
+                    <a href="{% url 'adminaddproduct' %}" class="btn btn-info">Add Product</a>
+                    <div id="example_filter" class="dataTables_filter pull-right">
+                        <input class="form-control" id="placeholderInput" placeholder="Search" type="email">
+                    </div>
+                    <table class="table table-responsive" style="margin-top: 20px;">
+                        <thead>
+                            <tr>
+                                <!-- <th class="sortable">SN</th> -->
+                                <th class="sortable">Product Name</th>
+                                <th class="sortable">Company</th>
+                                <th>Charge</th>
+                                <th>Pre Amount</th>
+                                <th class="sortable">Action</th>
+                            </tr>
+                        </thead>
+                        {% for product in product %}
+                        <tr>
+                            <!-- <td class="text-truncate">{{ product.id }}</td> -->
+                            <td class="text-truncate"><a href="#">{{ product.prodName }}</a></td>
+                            <td class="text-truncate">{{ product.company }}</td>
+                            <td class="text-truncate">$ {{ product.prodCharge }}</td>
+                            <td class="text-truncate">$ {{ product.preoderAmount }}</td>
+                            <td><a href="{% url 'adminupdateproduct' product.id %}"
+                                    class="lable-tag tag-success">Edit</a> <a
+                                    href="{% url 'admindeleteproduct' product.id %}"
+                                    class="lable-tag tag-unpaid">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    <!-- <ul class="pagination m-bot-0">
+                        <li> <a href="#" aria-label="Previous"> <span aria-hidden="true">«</span> </a> </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li> <a href="#" aria-label="Next"> <span aria-hidden="true">»</span> </a> </li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- content -->
+</div>
+<!-- content-wrapper -->
+{% include 'adminportal/footer.html' %}
+{% endblock %}

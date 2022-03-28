@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi" style="background-image: url('{{ prod.prodImage.url }}');">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>{{ prod.prodName }}</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">{{ prod.prodName }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+<style>
+    .input-text {
+        border: 1px solid #e8e8e8;
+        padding: 6px 15px;
+        width: 100%;
+        outline: none;
+        margin-top: 5px;
+    }
+</style>
+<!-- Car details page start -->
+<div class="car-details-page content-area-6">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-xs-12">
+                <div class="car-details-section">
+                    <!-- Heading start -->
+                    <div class="heading-car clearfix">
+                        <div class="pull-left">
+                            <h3>{{ prod.prodName }}</h3>
+                        </div>
+                        <div class="pull-right">
+                            <h3><span>$ {{ prod.prodCharge }}</span></h3>
+                        </div>
+                    </div>
+                    <div id="carDetailsSlider" class="carousel car-details-sliders slide mb-40">
+                        <!-- main slider carousel items -->
+                        <div class="carousel-inner">
+                            <div class="active item carousel-item" data-slide-number="0">
+                                <img src="{{ prod.prodImage.url }}" class="img-fluid" alt="slider-car">
+                            </div>
+                        </div>
+                        <!-- main slider carousel nav controls -->
+                    </div>
+
+                    <!-- Tabbing box start -->
+                    <div class="tabbing tabbing-box mb-40">
+                        <div class="tab-content" id="carTabContent">
+                            <div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="one-tab">
+                                <div class="car-description mb-50">
+                                    <h3 class="heading-2">
+                                        Description
+                                    </h3>
+                                    <p>{{ prod.prodDesc }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="sidebar-right">
+                    <!-- Advanced search start -->
+                    <div class="widget advanced-search d-none-992">
+                        <h3>{{prod.prodName}}</h3>
+                        <form action="{% url 'preorder' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group form-box">
+                                <input type="text" name="preoderAmount" value="$ {{ prod.preoderAmount }} USD"
+                                    class="input-text" style="color: #282727 !important;" placeholder="Reserve Charge"
+                                    disabled>
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div class="form-group form-box">
+                                <input type="text" name="preoderFName" class="input-text" placeholder="First Name"
+                                    required>
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div class="form-group form-box">
+                                <input type="text" name="preoderLName" class="input-text" placeholder="Last Name"
+                                    required>
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div class="form-group form-box">
+                                <input type="email" name="preoderEmail" class="input-text" placeholder="Email Address"
+                                    required>
+                                <i class="flaticon-mail"></i>
+                            </div>
+                            <div class="form-group form-box">
+                                <input type="text" name="preoderPhoneNum" class="input-text" placeholder="Phone Number"
+                                    required>
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div class="form-group form-box">
+                                <input type="text" name="product" class="input-text" value="{{prod.id}}" hidden>
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <button class="btn btn-outline-danger bomd btn-block btn-lg" data-toggle="modal"
+                                data-target="#inquiryModal">Reserve</button>
+                            <div class="form-section">
+                                <!-- <div class="form-group mb-0 clearfix">
+                                <button type="submit" class="btn-md btn-theme float-left">Save & Complete Payment
+                                </button>
+                            </div> -->
+                        </form>
+                        <!-- <p>Already a member? <a href="login.html" class="thembo"> Login here</a></p> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Properties details page end -->
+{% endblock %}

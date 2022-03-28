@@ -1,0 +1,62 @@
+{% load static %}
+<!-- Main Header -->
+<header class="main-header dark-bg">
+
+    <!-- Logo -->
+    <a href="{% url 'dashboard' %}" class="logo dark-bg">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><img src="{% static 'dist/img/logo.png' %}" alt="Ovio"></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><img src="{% static 'dist/img/logo-lg.png' %}" alt="Ovio"></span>
+    </a>
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"> <span class="sr-only">Toggle
+                navigation</span> </a>
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <!-- Tasks Menu -->
+                <!-- User Account Menu -->
+                <li class="dropdown user user-menu"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{% static 'dist/img/img1.jpg' %}" class="user-image" alt="User Image"> <span
+                            class="hidden-xs">Admin</span> </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'logout' %}"><i class="fa fa-power-off"></i> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar dark-bg">
+    <section class="sidebar">
+        <!-- <div class="user-panel black-bg">
+            <div class="pull-left image"> <img src="{% static 'dist/img/img1.jpg' %}" class="img-circle"
+                    alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>Florence Douglas</p>
+                <a href="#"><i class="fa fa-circle"></i> Online</a>
+            </div>
+        </div> -->
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header dark-bg">Menu</li>
+            <li class="active"><a href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i>
+                    <span>Dashboard</span></a>
+            </li>
+            <li> <a href="{% url 'admincompany' %}"> <i class="fa fa-th"></i> <span>Company</span></a> </li>
+            <li> <a href="{% url 'adminproduct' %}"> <i class="fa fa-briefcase"></i> <span>Products</span></a>
+            </li>
+            <li> <a href="{% url 'adminreserve' %}"> <i class="fa fa-pencil-square-o"></i>
+                    <span>Reserve</span></a> </li>
+            <li> <a href="{% url 'adminreport' %}"> <i class="fa fa-pencil-square-o"></i>
+                    <span>Report</span></a> </li>
+        </ul>
+        <!-- sidebar-menu -->
+    </section>
+</aside>

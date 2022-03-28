@@ -1,0 +1,314 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Banner start -->
+<div class="banner" id="banner">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner banner-slider-inner text-center">
+            <div class="carousel-item banner-max-height active item-bg">
+                <img class="d-block w-100 h-100"
+                    src="https://imagescdn.dealercarsearch.com/dealerimages/17139/20919/fxslide12021.jpg" alt="banner">
+                <div class="carousel-content container banner-info-2 bi-2 text-left">
+                    <h3>Wow Factor Standard</h3>
+                    <h5>Allow us to guide you through the innovative stress<br>
+                        free approach in finding your dream car.</h5>
+                    <a href="services.html" class="btn btn-lg btn-theme">Read more</a>
+                </div>
+            </div>
+            <div class="carousel-item banner-max-height item-bg">
+                <img class="d-block w-100 h-100"
+                    src="https://images.hindustantimes.com/auto/auto-images/Kia/Seltos/1589878851759_Seltos1"
+                    alt="banner">
+                <div class="carousel-content container banner-info-2 bi-2 text-left">
+                    <h3>Explore Your Dream Car</h3>
+                    <h5>Allow us to guide you through the innovative stress<br>
+                        free approach in finding your dream car.</h5>
+                    <a href="#" class="btn btn-lg btn-theme">Read more</a>
+                </div>
+            </div>
+            <div class="carousel-item banner-max-height item-bg">
+                <img class="d-block w-100 h-100"
+                    src="https://www.kia.com/content/dam/kwcms/sg/en/images/main/CC-KIA21036SonetLaunch_1920x1080-(150dpi).jpg"
+                    alt="banner">
+                <!-- <img class="d-block w-100 h-100" src="{% static 'img/car-3.jpg' %}" alt="banner"> -->
+                <div class="carousel-content container banner-info-2 bi-2 text-left">
+                    <h3>We Are Wheel</h3>
+                    <h5>Allow us to guide you through the innovative stress<br>
+                        free approach in finding your dream car.</h5>
+                    <a href="#" class="btn btn-lg btn-theme">Read more</a>
+                </div>
+            </div>
+        </div>
+        <!-- Search box 3 end -->
+        <a class="carousel-control-prev none-580" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="slider-mover-left" aria-hidden="true">
+                <i class="fa fa-angle-left"></i>
+            </span>
+        </a>
+        <a class="carousel-control-next none-580" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="slider-mover-right" aria-hidden="true">
+                <i class="fa fa-angle-right"></i>
+            </span>
+        </a>
+    </div>
+</div>
+<!-- Banner end -->
+
+<!-- Search box 2 end -->
+
+<!-- Featured car start -->
+<div class="featured-car content-area-5">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>Featured <span>Cars</span></h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <!-- Slick slider area start -->
+        <div class="slick-slider-area clearfix">
+            <div class="row slick-carousel"
+                data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+                {% for prod in prod %}
+                <div class="slick-slide-item">
+                    <div class="car-box-3">
+                        <div class="car-thumbnail">
+                            <a href="{% url 'details' prod.id %}" class="car-img">
+                                <!-- <div class="tag-2">Featured</div> -->
+                                <div class="price-box">
+                                    <!-- <span class="del"><del>${{prod.prodCharge}}</del></span> -->
+                                    <br>
+                                    <span>${{prod.prodCharge}}</span>
+                                </div>
+                                <img class="d-block w-100" src="{{prod.prodImage.url}}" alt="car">
+                            </a>
+                        </div>
+                        <div class="detail">
+                            <h1 class="title">
+                                <a href="{% url 'details' prod.id %}">{{prod.prodName}}</a>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="slick-btn">
+                <div class="slick-prev slick-arrow-buton sab-4">
+                    <i class="fa fa-angle-left"></i>
+                </div>
+                <div class="slick-next slick-arrow-buton sab-3">
+                    <i class="fa fa-angle-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured car end -->
+
+<!-- Rent car start -->
+<!-- <div class="featured-car content-area">
+    <div class="container"> -->
+<!-- Main title -->
+<!-- <div class="main-title">
+            <h1>Latest <span>Cars</span></h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="row">
+            {% for prod in prod %}
+            <div class="col-lg-4 col-md-6">
+                <div class="car-box">
+                    <div class="car-thumbnail">
+                        <a href="car-details.html" class="car-img">
+                            <div class="tag">For Sale</div>
+                            <img class="d-block w-100" src="{% static 'img/car/car-1.jpg' %}" alt="car">
+                            <div class="facilities-list clearfix">
+                                <ul>
+                                    <li>
+                                        <span><i class="flaticon-way"></i></span>4,000 km
+                                    </li>
+                                    <li>
+                                        <span><i class="flaticon-calendar-1"></i></span>2020
+                                    </li>
+                                    <li>
+                                        <span><i class="flaticon-manual-transmission"></i></span>Manual
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <div class="carbox-overlap-wrapper">
+                            <div class="overlap-box">
+                                <div class="overlap-btns-area">
+                                    <div class="car-magnify-gallery">
+                                        <a href="{% static 'img/car/car-1.jpg' %}" class="overlap-btn">
+                                            <i class="fa fa-expand"></i>
+                                            <img class="hidden" src="{% static 'img/car/car-1.jpg' %}">
+                                        </a>
+                                        <a href="{% static 'img/car/car-2.jpg' %}" class="hidden">
+                                            <img class="hidden" src="{% static 'img/car/car-2.jpg' %}">
+                                        </a>
+                                        <a href="{% static 'img/car/car-3.jpg' %}" class="hidden">
+                                            <img class="hidden" src="{% static 'img/car/car-3.jpg' %}">
+                                        </a>
+                                        <a href="{% static 'img/car/car-4.jpg' %}" class="hidden">
+                                            <img class="hidden" src="{% static 'img/car/car-4.jpg' %}">
+                                        </a>
+                                        <a href="{% static 'img/car/car-5.jpg' %}" class="hidden">
+                                            <img class="hidden" src="{% static 'img/car/car-5.jpg' %}">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="car-details.html">Lamborghini Huracán</a>
+                        </h1>
+                        <div class="location">
+                            <a href="car-details.html">
+                                <i class="flaticon-pin"></i>123 Kathal St. Tampa City,
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer clearfix">
+                        <div class="pull-left ratings days">
+                            <p class="cartype">Sedan</p>
+                        </div>
+                        <div class="pull-right">
+                            <p class="price">$850.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div> -->
+<!-- Rent car end -->
+
+<!-- 
+Our team start -->
+<!--<div class="our-team content-area bg-grea-3">
+    <div class="container"> -->
+<!-- Main title -->
+<!--<div class="main-title">
+            <h1>Executive <span>Team</span></h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+        </div> -->
+<!-- Slick slider area start -->
+<!-- <div class="slick-slider-area clearfix">
+            <div class="row slick-carousel"
+                data-slick='{"slidesToShow": 4, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+                <div class="slick-slide-item">
+                    <div class="team-1">
+                        <div class="photo">
+                            <a href="#">
+                                <img src="{% static 'img/avatar/avatar-12.jpg' %}" alt="team-1" class="img-fluid">
+                            </a>
+                            <div class="social-list clearfix">
+                                <a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="google-bg"><i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <h4><a href="team-detail.html">Brandon Miller</a></h4>
+                            <h5>Manager</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="slick-slide-item">
+                    <div class="team-1">
+                        <div class="photo">
+                            <a href="#">
+                                <img src="{% static 'img/avatar/avatar-9.jpg' %}" alt="team-1" class="img-fluid">
+                            </a>
+                            <div class="social-list clearfix">
+                                <a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="google-bg"><i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <h4><a href="team-detail.html">Michelle Nelson</a></h4>
+                            <h5>Support Manager</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="slick-slide-item">
+                    <div class="team-1">
+                        <div class="photo">
+                            <a href="#">
+                                <img src="{% static 'img/avatar/avatar-11.jpg' %}" alt="team-1" class="img-fluid">
+                            </a>
+                            <div class="social-list clearfix">
+                                <a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="google-bg"><i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <h4><a href="team-detail.html">Stone Carolyn</a></h4>
+                            <h5>Creative Director</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="slick-slide-item">
+                    <div class="team-1">
+                        <div class="photo">
+                            <a href="#">
+                                <img src="{% static 'img/avatar/avatar-10.jpg' %}" alt="team-1" class="img-fluid">
+                            </a>
+                            <div class="social-list clearfix">
+                                <a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="google-bg"><i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <h4><a href="team-detail.html">Martin Smith</a></h4>
+                            <h5>Web Developer</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="slick-slide-item">
+                    <div class="team-1">
+                        <div class="photo">
+                            <a href="#">
+                                <img src="{% static 'img/avatar/avatar-11.jpg' %}" alt="team-1" class="img-fluid">
+                            </a>
+                            <div class="social-list clearfix">
+                                <a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="google-bg"><i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <h4><a href="team-detail.html">Stone Carolyn</a></h4>
+                            <h5>Creative Director</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- Our team end -->
+
+<!-- Intro section start -->
+<div class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 col-sm-12">
+                <div class="intro-text">
+                    <h3>Do You Have Questions ?</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12">
+                <a href="contact.html" class="btn btn-md">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Intro section end -->
+
+{% endblock %}

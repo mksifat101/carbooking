@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Sub banner start -->
+<div class="sub-banner overview-bgi"
+    style="background-image: ('https://imagescdn.dealercarsearch.com/dealerimages/17139/20919/fxslide12021.jpg');">
+    <div class="container breadcrumb-area">
+        <div class="breadcrumb-areas">
+            <h1>Our Car Inventory</h1>
+            <ul class="breadcrumbs">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li class="active">Reserve</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Sub Banner end -->
+<!-- Rent car start -->
+<div class="featured-car content-area">
+    <div class="container">
+        <!-- Main title -->
+        <!-- <div class="main-title">
+            <h1>Latest <span>Cars</span></h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div> -->
+        <div class="row">
+            {% for product in product %}
+            <div class="col-lg-4 col-md-6">
+                <div class="car-box">
+                    <div class="car-thumbnail">
+                        <a href="{% url 'details' product.id %}" class="car-img">
+                            <!-- s -->
+                            <img class="d-block w-100" src="{{ product.prodImage.url }}" alt="car">
+                        </a>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="{% url 'details' product.id %}">{{ product.prodName }}</a>
+                        </h1>
+                        <div class="pull-right">
+                            <p class="price">${{ product.prodAmount }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Rent car end -->
+
+{% endblock %}

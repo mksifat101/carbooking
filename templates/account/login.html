@@ -1,0 +1,45 @@
+{% extends 'adminportal/base.html' %}
+{% load static %}
+{% block content %}
+<div class="wrapper">
+    <div class="form-body">
+        <form action="{% url 'login' %}" method="post" class="col-form" novalidate>
+            {% csrf_token %}
+            <div class="col-logo"><a href="{% url 'home' %}"><img alt="" src="../dist/img/logo-lg.png"></a></div>
+            <header>Login</header>
+            <fieldset>
+                <section>
+                    <div class="form-group has-feedback">
+                        <label class="control-label">E-mail</label>
+                        <input class="form-control" name="username" placeholder="E-mail Or Username" type="text">
+                        <span class="fa fa-envelope form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </section>
+                <section>
+                    <div class="form-group has-feedback">
+                        <label class="control-label">Password</label>
+                        <input class="form-control" name="password" placeholder="Password" type="password">
+                        <span class="fa fa-lock form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                </section>
+                <!-- <section>
+                    <div class="row">
+                        <div class="col-md-6 checkbox"> <a href="forgot-password.html" class="modal-opener">Forgot
+                                password?</a> </div>
+                        <div class="col-md-6 text-right">
+                            <label class="checkbox">
+                                <input name="remember" checked="" type="checkbox">
+                                <i></i>Keep me logged in</label>
+                        </div>
+                    </div>
+                </section> -->
+            </fieldset>
+            <footer class="text-right">
+                <button type="submit" class="btn btn-info pull-right">Login</button>
+                <!-- <a href="register.html" class="button button-secondary">Register</a> -->
+            </footer>
+        </form>
+    </div>
+</div>
+<!-- wrapper -->
+{% endblock %}

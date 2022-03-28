@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NX5VQP" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="page_loader"></div>
+
+<!-- Contact section start -->
+<div class="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="form-section" style="margin-top: 150px;">
+                    <div class="logo-2">
+                        <a href="{% url 'details' prod.id %}">
+                            <img src="{{prod.prodImage.url}}" alt="logo">
+                        </a>
+                    </div>
+                    <h3>{{prod.prodName}}</h3>
+                    <form action="{% url 'preorder' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group form-box">
+                            <input type="text" name="preoderAmount" class="input-text" placeholder="Reserve Charge">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="text" name="preoderFName" class="input-text" placeholder="First Name" required>
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="text" name="preoderLName" class="input-text" placeholder="Last Name" required>
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="email" name="preoderEmail" class="input-text" placeholder="Email Address"
+                                required>
+                            <i class="flaticon-mail"></i>
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="text" name="preoderPhoneNum" class="input-text" placeholder="Phone Number"
+                                required>
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="text" name="product" class="input-text" value="{{prod.id}}" hidden>
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="form-group mb-0 clearfix">
+                            <button type="submit" class="btn-md btn-theme float-left">Save & Complete Payment </button>
+                        </div>
+                    </form>
+                    <!-- <p>Already a member? <a href="login.html" class="thembo"> Login here</a></p> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact section end -->
+
+{% endblock %}
