@@ -29,7 +29,7 @@ DEBUG = False
 # ALLOWED_HOSTS = []
 
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'carprebookingapp.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
