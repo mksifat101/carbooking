@@ -74,7 +74,7 @@
                         <form action="{% url 'preorder' %}" method="POST">
                             {% csrf_token %}
                             <div class="form-group form-box">
-                                <input type="text" name="preoderAmount" value="$ {{ prod.preoderAmount }} USD"
+                                <input type="text" name="preoderAmount" value="Reserve ${{ prod.preoderAmount }} USD"
                                     class="input-text" style="color: #282727 !important;" placeholder="Reserve Charge"
                                     disabled>
                                 <i class="fa fa-user"></i>

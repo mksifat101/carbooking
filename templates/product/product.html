@@ -30,7 +30,8 @@
                     <div class="car-thumbnail">
                         <a href="{% url 'details' product.id %}" class="car-img">
                             <!-- s -->
-                            <img class="d-block w-100" src="{{ product.prodImage.url }}" alt="car">
+                            <img class="d-block w-100" src="{{ product.prodImage.url }}" alt="car"
+                                style="min-height: 240px; max-height: 240px;">
                         </a>
                     </div>
                     <div class="detail">
