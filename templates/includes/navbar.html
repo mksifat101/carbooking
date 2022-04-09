@@ -23,9 +23,15 @@
                         </a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'product' %}">
+                        {% if 'reserve' in request.path %}
+                        <a class="nav-link disabled active">
                             Reserve
                         </a>
+                        {% else %}
+                        <a class="nav-link" href="#reserve">
+                            Reserve
+                        </a>
+                        {% endif %}
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="myaccount.html">
