@@ -1,44 +1,106 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
+
 <!-- Banner start -->
 <div class="banner" id="banner">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner banner-slider-inner text-center">
             <div class="carousel-item banner-max-height active item-bg">
-                <img class="d-block w-100 h-100"
-                    src="https://imagescdn.dealercarsearch.com/dealerimages/17139/20919/fxslide12021.jpg" alt="banner">
+                <img class="d-block w-100 h-100" src="https://wallpaperaccess.com/full/1563322.jpg" alt="banner">
                 <div class="carousel-content container banner-info-2 bi-2 text-left">
                     <h3>Wow Factor Standard</h3>
                     <h5>Allow us to guide you through the innovative stress<br>
                         free approach in finding your dream car.</h5>
-                    <a href="{% url 'product' %}" class="btn btn-lg btn-theme">Read more</a>
+                    <a href="services.html" class="btn btn-lg btn-theme">Read more</a>
                 </div>
             </div>
             <div class="carousel-item banner-max-height item-bg">
                 <img class="d-block w-100 h-100"
-                    src="https://images.hindustantimes.com/auto/auto-images/Kia/Seltos/1589878851759_Seltos1"
+                    src="https://s1.cdn.autoevolution.com/images/news/gallery/cleveland-woman-hits-another-woman-with-her-car-over-facebook-disagreement_2.jpg"
                     alt="banner">
                 <div class="carousel-content container banner-info-2 bi-2 text-left">
                     <h3>Explore Your Dream Car</h3>
                     <h5>Allow us to guide you through the innovative stress<br>
                         free approach in finding your dream car.</h5>
-                    <a href="{% url 'product' %}" class="btn btn-lg btn-theme">Read more</a>
+                    <a href="#" class="btn btn-lg btn-theme">Read more</a>
                 </div>
             </div>
             <div class="carousel-item banner-max-height item-bg">
                 <img class="d-block w-100 h-100"
-                    src="https://www.kia.com/content/dam/kwcms/sg/en/images/main/CC-KIA21036SonetLaunch_1920x1080-(150dpi).jpg"
+                    src="https://pictures.dealer.com/h/hilltopkia/0101/8fa13f32aa4cdedeb4f6fa126dc58f61x.jpg"
                     alt="banner">
-                <!-- <img class="d-block w-100 h-100" src="{% static 'img/car-3.jpg' %}" alt="banner"> -->
                 <div class="carousel-content container banner-info-2 bi-2 text-left">
                     <h3>We Are Wheel</h3>
                     <h5>Allow us to guide you through the innovative stress<br>
                         free approach in finding your dream car.</h5>
-                    <a href="{% url 'product' %}" class="btn btn-lg btn-theme">Read more</a>
+                    <a href="#" class="btn btn-lg btn-theme">Read more</a>
                 </div>
             </div>
         </div>
+        <!-- Search box 3 start -->
+        <!-- <div class="search-box-4 sb-8">
+            <form action="#" method="">
+                <div class="form-group">
+                    <input type="text" name="keyword" placeholder="Search by name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <select class="form-control search-fields" name="select-brand">
+                        <option selected="true" disabled="disabled">Brand</option>
+                        <option>Audi</option>
+                        <option>BMW</option>
+                        <option>Honda</option>
+                        <option>Nissan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control search-fields" name="select-make">
+                        <option selected="true" disabled="disabled">Model</option>
+                        <option>BMW</option>
+                        <option>Honda</option>
+                        <option>Lamborghini Huracán</option>
+                        <option>Sports Car</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control search-fields" name="select-location">
+                        <option selected="true" disabled="disabled">Location</option>
+                        <option>United States</option>
+                        <option>United Kingdom</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control search-fields" name="select-year">
+                        <option selected="true" disabled="disabled">Year</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                        <option>2018</option>
+                        <option>2019</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control search-fields" name="select-type">
+                        <option selected="true" disabled="disabled">Select Type Of Car</option>
+                        <option>Sedan</option>
+                        <option>Sports</option>
+                        <option>Hatchback</option>
+                        <option>Pickup Truck</option>
+                        <option>SUV</option>
+                    </select>
+                </div>
+                <div class="range-slider clearfix">
+                                <label>Price</label>
+                                <div data-min="0" data-max="150000"  data-min-name="min_price" data-max-name="max_price" data-unit="USD" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                <div class="form-group">
+                    <button class="btn btn-block button-theme btn-md">
+                        <i class="fa fa-search"></i> Search
+                    </button>
+                </div>
+            </form>
+        </div> -->
         <!-- Search box 3 end -->
         <a class="carousel-control-prev none-580" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="slider-mover-left" aria-hidden="true">
@@ -54,17 +116,14 @@
 </div>
 <!-- Banner end -->
 
-<!-- Search box 2 end -->
 
 <!-- Featured car start -->
 <div class="featured-car content-area-5">
     <div class="container">
-        <!-- Main title -->
         <div class="main-title">
             <h1>Featured <span>Cars</span></h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-        <!-- Slick slider area start -->
         <div class="slick-slider-area clearfix">
             <div class="row slick-carousel"
                 data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
@@ -72,10 +131,10 @@
                 <div class="slick-slide-item">
                     <div class="car-box-3">
                         <div class="car-thumbnail">
-                            <a href="{% url 'details' prod.id %}" class="car-img">
-                                <!-- <div class="tag-2">Featured</div> -->
+                            <a href="{% url 'reserve' prod.id %}" class="car-img">
+
                                 <div class="price-box">
-                                    <!-- <span class="del"><del>${{prod.prodCharge}}</del></span> -->
+                                    <!-- <span>${{prod.prodCharge}}</span> -->
                                     <br>
                                     <span>${{prod.prodCharge}}</span>
                                 </div>
@@ -85,8 +144,11 @@
                         </div>
                         <div class="detail">
                             <h1 class="title">
-                                <a href="{% url 'details' prod.id %}">{{prod.prodName}}</a>
+                                <a href="{% url 'reserve' prod.id %}">{{prod.prodName}}</a>
                             </h1>
+                            <ul class="facilities-list clearfix">
+                                <li>{{prod.prodDesc}}</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -296,7 +358,7 @@ Our team start -->
 <!-- Our team end -->
 
 <!-- Intro section start -->
-<div class="intro-section">
+<!-- <div class="intro-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-9 col-md-8 col-sm-12">
@@ -309,7 +371,7 @@ Our team start -->
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Intro section end -->
 
 {% endblock %}

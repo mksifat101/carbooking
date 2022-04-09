@@ -46,8 +46,10 @@ def payment(request, id):
             'quantity': 1,
         }],
         mode='payment',
-        success_url='https://carprebookingapp.herokuapp.com/reserve/success/',
-        cancel_url='https://carprebookingapp.herokuapp.com/reserve/cancel/',
+        success_url='http://127.0.0.1:8000/reserve/success/',
+        cancel_url='http://127.0.0.1:8000/reserve/cancel/',
+        # success_url='https://carprebookingapp.herokuapp.com/reserve/success/',
+        # cancel_url='https://carprebookingapp.herokuapp.com/reserve/cancel/',
     )
     return redirect(session.url, code=303)
 
